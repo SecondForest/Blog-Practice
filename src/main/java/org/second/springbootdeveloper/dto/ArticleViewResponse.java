@@ -21,3 +21,4 @@ public class ArticleViewResponse {
     this.createdAt = article.getCreatedAt();
   }
 }
+

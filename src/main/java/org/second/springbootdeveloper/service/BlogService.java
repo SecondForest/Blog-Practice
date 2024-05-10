@@ -10,7 +10,7 @@ import org.second.springbootdeveloper.repository.BlogRepository;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor // final이 붙거나 @NotNull이 붙은 필드의 생성자 추가
-@Service
+@Service // 빈으로 등록
 public class BlogService {
 
   private final BlogRepository blogRepository;
@@ -25,8 +25,9 @@ public class BlogService {
   }
 
   public Article findById(long id) {
-    return blogRepository.findById(id)
-        .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+    return blogRepository
+        .findById(id)
+        .orElseThrow(() -> new IllegalArgumentException("not found : " + id));
   }
 
   public void delete(long id) {
@@ -35,8 +36,10 @@ public class BlogService {
 
   @Transactional // 트랜잭션 메서드
   public Article update(long id, UpdateArticleRequest request) {
-    Article article = blogRepository.findById(id)
-        .orElseThrow(() -> new IllegalArgumentException("not found:" + id));
+    Article article =
+        blogRepository
+            .findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("not found : " + id));
 
     article.update(request.getTitle(), request.getContent());
 

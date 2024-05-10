@@ -16,12 +16,12 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @EntityListeners(AuditingEntityListener.class)
-@Entity // 엔티티 지정
+@Entity // 엔티티로 저장
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Article {
 
-  @Id // id 필드를 기본키로 지정
+  @Id // id 필드를 기본키로 저장
   @GeneratedValue(strategy = GenerationType.IDENTITY) // 기본키를 자동으로 1씩 증가
   @Column(name = "id", updatable = false)
   private Long id;
