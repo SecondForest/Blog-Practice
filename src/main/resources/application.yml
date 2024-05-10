@@ -11,3 +11,7 @@ spring:
   h2:
     console:
       enabled: true
+
+jwt:
+  issuer: reversiblehope@gmail.com
+  secret_key: springboot
